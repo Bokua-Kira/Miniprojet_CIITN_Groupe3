@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajouter Patient</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+  <h1>Formulaire d'ajout de patient</h1>
+  <form id="form-patient">
+    <input type="text" name="nom" placeholder="Nom" required>
+    <input type="text" name="prenom" placeholder="Prénom" required>
+    <input type="number" name="age" placeholder="Âge" required>
+    <input type="text" name="tel" placeholder="Téléphone">
+    <input type="text" name="nationalite" placeholder="Nationalité">
+    <button type="submit">Ajouter</button>
+  </form>
+  <script src="scriptpatient.js"></script>
 </body>
 </html>
