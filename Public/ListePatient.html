@@ -8,6 +8,18 @@
 </head>
 <body>
   <h1>Liste des Patients</h1>
+  
+  <!-- Formulaire d'ajout d'un patient -->
+  <form id="form-patient">
+    <input type="text" name="nom" placeholder="Nom" required />
+    <input type="text" name="prenom" placeholder="Prénom" required />
+    <input type="number" name="age" placeholder="Âge" required />
+    <input type="tel" name="tel" placeholder="Téléphone" required />
+    <input type="text" name="nationalite" placeholder="Nationalité" required />
+    <button type="submit">Ajouter Patient</button>
+  </form>
+
+  <!-- Tableau des patients -->
   <table>
     <thead>
       <tr>
@@ -21,6 +33,7 @@
     </thead>
     <tbody id="patients-list"></tbody>
   </table>
-  <script src="scriptpatient.js"></script>
+
+  <script src="Scriptpatient.js"></script>
 </body>
 </html>

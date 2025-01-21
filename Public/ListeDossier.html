@@ -8,6 +8,14 @@
 </head>
 <body>
   <h1>Liste des Dossiers Médicaux</h1>
+
+  <!-- Formulaire d'ajout de dossier médical -->
+  <form id="form-dossier">
+    <input type="number" name="idPatient" placeholder="ID du Patient" required />
+    <button type="submit">Ajouter Dossier</button>
+  </form>
+
+  <!-- Tableau des dossiers médicaux -->
   <table>
     <thead>
       <tr>
@@ -18,6 +26,7 @@
     </thead>
     <tbody id="dossiers-list"></tbody>
   </table>
-  <script src="scriptdosier.js"></script>
+
+  <script src="Scriptdosier.js"></script>
 </body>
 </html>

@@ -55,8 +55,9 @@ app.get('/api/patients', (req, res) => {
 
 // Route principale pour afficher la page d'accueil
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'listepatient.html')); // Fichier HTML à afficher
+    res.sendFile(path.join(__dirname, 'public', 'Accueil.html')); // Nouveau fichier HTML à afficher
 });
+
 
 // Route pour ajouter un dossier médical
 app.post('/api/dossiers', (req, res) => {
