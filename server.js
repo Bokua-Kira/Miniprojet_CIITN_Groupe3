@@ -28,6 +28,30 @@ db.connect((err) => {
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static('public')); // Dossier contenant les fichiers HTML, CSS, JS
+// Route pour ajouter un dossier médical
+app.post('/api/dossiers', (req, res) => {
+    const { idPatient } = req.body;
+    const dateCreation = new Date().toISOString().slice(0, 10); // Date actuelle au format AAAA-MM-JJ
+
+    // Vérifier si l'ID Patient existe
+    db.query('SELECT idPatient FROM patients WHERE idPatient = ?', [idPatient], (err, result) => {
+        if (err) {
+            return res.status(500).send({ message: 'Erreur de base de données', error: err });
+        }
+
+        if (result.length === 0) {
+            return res.status(400).send({ message: 'Le patient avec cet ID n\'existe pas' });
+        }
+
+        // Inserer le dossier
+        db.query('INSERT INTO dossiers (dateCreation, idPatient) VALUES (?, ?)', [dateCreation, idPatient], (error, results) => {
+            if (error) {
+                return res.status(500).send({ message: 'Erreur lors de l\'ajout du dossier', error: error });
+            }
+            res.status(200).json({ message: 'Dossier médical ajouté avec succès!', results });
+        });
+    });
+});
 
 // Route pour enregistrer les patients
 app.post('/api/patients', (req, res) => {
