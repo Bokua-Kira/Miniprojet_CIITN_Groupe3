@@ -6,12 +6,17 @@
 }
 
 /* Style global de la page */
+/* Ajouter une image de fond à la page */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f7f6;
+    background-image: url('photo/homme-et-femme-de-haut-rang-se-joignent-tiennent-la-main-avec-une-jeune-infirmière-qui-les-prend-en-charge-dans-clinique-ou-un-258905972.webp'); /* Remplacez le chemin par celui de votre image */
+    background-size: cover;  /* Pour que l'image couvre toute la page */
+    background-position: center;  /* Pour centrer l'image */
     color: #333;
     line-height: 1.6;
 }
+
 
 /* Header */
 header {

@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liste des Dossiers</title>
+  <title>Liste des Dossiers Médicaux</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Menu de navigation -->
+  <nav>
+    <ul>
+      <li><a href="ListePatient.html">Liste des Patients</a></li>
+      <li><a href="ListeDossier.html">Liste des Dossiers Médicaux</a></li>
+      <li><a href="#">Autres</a></li>
+    </ul>
+  </nav>
+
   <h1>Liste des Dossiers Médicaux</h1>
 
   <!-- Formulaire d'ajout de dossier médical -->
@@ -22,10 +31,25 @@
         <th>ID Dossier</th>
         <th>Date de Création</th>
         <th>ID Patient</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody id="dossiers-list"></tbody>
   </table>
+
+  <!-- Formulaire de modification du dossier (caché par défaut) -->
+  <div id="edit-form-container" style="display: none;">
+    <h2>Modifier Dossier</h2>
+    <form id="edit-dossier-form">
+      <input type="hidden" id="edit-idDossier" name="idDossier" />
+      <label for="edit-dateCreation">Date de Création</label>
+      <input type="date" id="edit-dateCreation" name="dateCreation" required />
+      <label for="edit-idPatient">ID Patient</label>
+      <input type="number" id="edit-idPatient" name="idPatient" required />
+      <button type="submit">Enregistrer les modifications</button>
+      <button type="button" onclick="cancelEdit()">Annuler</button>
+    </form>
+  </div>
 
   <script src="Scriptdosier.js"></script>
 </body>

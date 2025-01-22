@@ -58,6 +58,40 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'Accueil.html')); // Nouveau fichier HTML à afficher
 });
 
+// Route pour afficher ListePatient.html
+app.get('/patients', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ListePatient.html'));
+});
+
+// Route pour afficher ListeDossier.html
+app.get('/dossiers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ListeDossier.html'));
+});
+// Route pour récupérer un patient par son ID (pour remplir le formulaire de modification)
+app.get('/api/patients/:id', (req, res) => {
+    const { id } = req.params;
+    const query = 'SELECT * FROM patients WHERE idPatient = ?';
+    db.query(query, [id], (error, results) => {
+        if (error) {
+            return res.status(500).send(error);
+        }
+        res.status(200).json(results[0]);
+    });
+});
+
+// Route pour mettre à jour un patient
+app.put('/api/patients/:id', (req, res) => {
+    const { id } = req.params;
+    const { nom, prenom, age, tel, nationalite } = req.body;
+    
+    const query = 'UPDATE patients SET Nom = ?, Prenom = ?, Age = ?, Tel = ?, Nationalite = ? WHERE idPatient = ?';
+    db.query(query, [nom, prenom, age, tel, nationalite, id], (error, results) => {
+        if (error) {
+            return res.status(500).send(error);
+        }
+        res.status(200).json({ message: 'Patient mis à jour avec succès!' });
+    });
+});
 
 
 // Route pour ajouter un dossier médical

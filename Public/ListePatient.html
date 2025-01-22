@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Menu de navigation -->
+  <nav>
+    <ul>
+      <li><a href="ListePatient.html">Liste des Patients</a></li>
+      <li><a href="ListeDossier.html">Liste des Dossiers Médicaux</a></li>
+      <li><a href="Accueil.html">Accueil</a></li>
+    </ul>
+  </nav>
+
   <h1>Liste des Patients</h1>
   
   <!-- Formulaire d'ajout d'un patient -->
@@ -19,6 +28,21 @@
     <button type="submit">Ajouter Patient</button>
   </form>
 
+  <!-- Formulaire de modification d'un patient (initialement caché) -->
+  <div id="edit-form-container" style="display: none;">
+    <h2>Modifier un patient</h2>
+    <form id="edit-patient-form">
+      <input type="hidden" name="idPatient" id="edit-idPatient" />
+      <input type="text" name="nom" id="edit-nom" placeholder="Nom" required />
+      <input type="text" name="prenom" id="edit-prenom" placeholder="Prénom" required />
+      <input type="number" name="age" id="edit-age" placeholder="Âge" required />
+      <input type="tel" name="tel" id="edit-tel" placeholder="Téléphone" required />
+      <input type="text" name="nationalite" id="edit-nationalite" placeholder="Nationalité" required />
+      <button type="submit">Modifier</button>
+      <button type="button" onclick="cancelEdit()">Annuler</button>
+    </form>
+  </div>
+
   <!-- Tableau des patients -->
   <table>
     <thead>
@@ -29,6 +53,7 @@
         <th>Âge</th>
         <th>Téléphone</th>
         <th>Nationalité</th>
+        <th>Actions</th> <!-- Colonne pour les boutons -->
       </tr>
     </thead>
     <tbody id="patients-list"></tbody>
