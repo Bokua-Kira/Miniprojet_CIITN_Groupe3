@@ -59,6 +59,7 @@ app.get('/', (req, res) => {
 });
 
 
+
 // Route pour ajouter un dossier médical
 app.post('/api/dossiers', (req, res) => {
     const { idPatient } = req.body;
